@@ -1,5 +1,9 @@
 (function () {
     let app = getApp();
 
-    console.log(app);
+    Vue.component('app-main', {
+        template: `
+            <div><test-c-a></test-c-a></div>
+        `
+    });
 })();

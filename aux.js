@@ -80,6 +80,10 @@ if (!isinwx) {
         // ret.template = ret.template.replace(/(<\/[\s]*)(view>)/g, function(match, $1, $2, $3){
         //     return $1 + $2.replace("view", "aux-view");
         // });
+        ret.template = ret.template.replace(/(<[\w-]+[\s]+)(\w+=".+")([^>]*>)/g, function (match, $1, $2, $3) {
+            return $1 + $2.replace(/bind:/, 'v-bind:') + $3;
+        });
+        console.log(ret.template);
         Vue.component(ret.$is, ret);
     }
     window.Component = Component;
